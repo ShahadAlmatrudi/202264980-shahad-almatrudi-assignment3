@@ -26,6 +26,9 @@ The website introduces dynamic features such as a dark/light theme toggle, live 
 
 ## Folder Structure
 
+## Folder Structure
+
+```
 assignment-2/
 ├── README.md
 ├── index.html
@@ -39,6 +42,7 @@ assignment-2/
 │   ├── ai-usage-report.md
 │   └── technical-documentation.md
 └── .gitignore
+```
 
 ## How to Run Locally
 
