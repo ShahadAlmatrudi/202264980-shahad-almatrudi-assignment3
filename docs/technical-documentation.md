@@ -1,47 +1,147 @@
-# Technical Documentation — Portfolio Website
+# Technical Documentation
 
-## Project Description
-This project is a simple single-page personal portfolio website.
-It was created to practice front-end development using HTML, CSS, and JavaScript, without using any backend or server-side code.
+## Project Overview
 
-## Website Sections
-The website contains the following sections:
-- **Navigation/Header**: A fixed header with links that scroll to different sections of the page.
-- **Hero Section**: Displays my name, role, and buttons that link to other sections.
-- **About Me**: A short introduction and personal tagline.
-- **Skills**: A grid layout showing the tools and technologies I am familiar with.
-- **Projects**: A responsive layout of project cards with images and links to GitHub repositories.
-- **Contact**: A contact form and links to external platforms such as email and GitHub.
+This project is a personal portfolio website developed for Assignment 2. It is based on the Assignment 1 portfolio and enhanced with interactive features using JavaScript, CSS transitions, and improved user feedback.
 
-## Responsive Design
-- CSS Grid and Flexbox are used to structure the layout.
-- Media queries are used to adjust the design for different screen sizes.
-- The Projects section changes layout based on screen width:
-  - Three columns on desktop
-  - Two columns on tablet
-  - One column on mobile
-- Responsiveness was tested using browser resizing tools.
+The main goal of the project is to present personal information, skills, projects, and contact details in a clear and interactive way.
 
-## JavaScript Functionality
+## Project Structure
 
-### Scroll Animations
-- JavaScript is used to detect when sections appear on the screen.
-- When a section becomes visible, a simple animation is applied.
-- This improves the visual experience without complex logic.
+The project follows a structured folder organization:
 
-### Theme Toggle
-- A button allows switching between light and dark themes.
-- The selected theme is saved in the browser so it remains after refreshing the page.
-- Theme colors are controlled using CSS variables.
+assignment-2/
+├── README.md
+├── index.html
+├── css/
+│   └── styles.css
+├── js/
+│   └── script.js
+├── assets/
+│   └── images/
+├── docs/
+│   ├── ai-usage-report.md
+│   └── technical-documentation.md
+└── .gitignore
 
-### Contact Form Interaction
-- The contact form is handled on the front end only.
-- JavaScript checks that all required fields are filled.
-- A feedback message is shown to the user after submitting the form.
-- No data is stored or sent to a server.
+## File Descriptions
 
-## Assets and Libraries
-- Project screenshots and images are stored in the `assets/images/` folder.
-- The following external resources are used:
-  - Google Fonts for typography
-  - Devicon icons for skill representation
+### 1. index.html
+
+This file contains the structure of the website. It includes:
+
+* Navigation bar
+* Hero section
+* About section
+* Skills section
+* Projects section
+* Contact section
+
+It also includes interactive elements such as:
+
+* Theme toggle button
+* Project search input
+* Contact form
+
+### 2. css/styles.css
+
+This file is responsible for the design and layout of the website. It includes:
+
+* Color variables and theme styles
+* Light and dark mode styling
+* Layout and spacing
+* Typography
+* Buttons and cards
+* Hover effects
+* Responsive design
+* Animations (reveal-on-scroll, transitions)
+* Styles for success and error messages
+
+### 3. js/script.js
+
+This file handles all interactive and dynamic functionality.
+
+Main features implemented:
+
+* Reveal elements on scroll using IntersectionObserver
+* Theme toggle (light/dark mode)
+* Saving theme preference using localStorage
+* Live filtering of projects based on user input
+* Contact form validation
+* Displaying success and error messages
+
+## Dynamic Features
+
+### 1. Theme Toggle
+
+Users can switch between light mode and dark mode using a button.
+The selected theme is saved using localStorage so it persists after refreshing the page.
+
+### 2. Live Project Search
+
+The Projects section includes a search input.
+As the user types, JavaScript filters the project cards based on their title and tags.
+
+This makes the page dynamic because content changes instantly based on user input.
+
+### 3. Contact Form Validation
+
+The contact form validates user input by checking:
+
+* All fields are filled
+* Email format is correct
+* Message length is sufficient
+
+If validation fails, an error message is displayed.
+If validation succeeds, a success message is shown.
+
+## Error Handling and User Feedback
+
+The system provides clear feedback to the user:
+
+* Error message for empty form fields
+* Error message for invalid email
+* Error message for short message
+* Success message after valid form submission
+* Empty-state message when no projects match the search
+
+This improves usability and helps guide the user.
+
+## Animation and Transitions
+
+The project uses simple animations to improve user experience:
+
+* Reveal-on-scroll animation for sections
+* Hover effects on buttons and cards
+* Smooth transitions for UI elements
+* Animated feedback messages
+
+These animations are lightweight and do not affect performance.
+
+## Accessibility and Usability
+
+Basic accessibility and usability improvements include:
+
+* Clear labels for form inputs
+* Readable typography and color contrast
+* Responsive design for different screen sizes
+* aria-live attribute for status messages
+* Buttons and links are easy to interact with
+
+## How to Run the Project
+
+1. Open the project folder
+2. Open `index.html` in a browser
+
+Optional:
+Use Live Server in VS Code for better development experience.
+
+## Future Improvements
+
+Possible improvements for this project include:
+
+* Connecting the contact form to a real backend
+* Adding more projects and categories
+* Adding project details in a popup or modal
+* Improving accessibility further
+* Deploying the portfolio using GitHub Pages or Vercel

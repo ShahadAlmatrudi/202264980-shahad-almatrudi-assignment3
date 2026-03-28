@@ -13,10 +13,17 @@
   --border: #e6edf7;
   --divider: rgba(100, 116, 139, 0.18);
 
-  /* Contact dark panel */
   --panel: rgba(30, 41, 59, 0.88);
   --panel-border: rgba(111,143,176,0.35);
   --panel-field: rgba(255,255,255,0.12);
+
+  --success-bg: rgba(34, 197, 94, 0.16);
+  --success-text: #dcfce7;
+  --success-border: rgba(34, 197, 94, 0.4);
+
+  --error-bg: rgba(239, 68, 68, 0.16);
+  --error-text: #fee2e2;
+  --error-border: rgba(239, 68, 68, 0.38);
 }
 
 /* ---------- Reset ---------- */
@@ -50,11 +57,10 @@ a{ color: inherit; text-decoration: none; }
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  -webkit-text-fill-color: transparent; /* Safari */
+  -webkit-text-fill-color: transparent;
   display: inline-block;
 }
 
-/* Screen-reader only */
 .sr-only{
   position:absolute;
   width:1px;
@@ -67,7 +73,7 @@ a{ color: inherit; text-decoration: none; }
   border:0;
 }
 
-/* Theme toggle button */
+/* Theme toggle */
 .theme-toggle{
   margin-left: auto;
   width: 44px;
@@ -85,7 +91,7 @@ a{ color: inherit; text-decoration: none; }
   background: rgba(255,255,255,0.75);
 }
 
-/* Dark theme (JS toggles: body.theme-dark) */
+/* Dark theme */
 body.theme-dark{
   --bg: #0b1220;
   --text: #e7edf7;
@@ -149,7 +155,7 @@ body.theme-dark .site-header{
 }
 .nav-links a:hover{ color: var(--title); }
 
-/* ---------- HERO ---------- */
+/* ---------- Hero ---------- */
 .hero{ padding: 72px 0 44px; }
 
 .hero-left{ max-width: 880px; }
@@ -255,22 +261,17 @@ body.theme-dark .site-header{
   transform: translateY(-1px);
 }
 
-/* View Projects button */
 .btn-primary.skills-btn{
   background:
     radial-gradient(140px 90px at 30% 20%, rgba(111,143,176,0.18), transparent 60%),
     rgba(30, 41, 59, 0.88);
-
   border: 1px solid rgba(111,143,176,0.35);
   color: rgba(235,243,255,0.96);
-
   border-radius: 16px;
   font-weight: 800;
-
   box-shadow:
     0 18px 45px rgba(15,23,42,0.30),
     inset 0 1px 0 rgba(255,255,255,0.06);
-
   transition:
     transform 140ms ease,
     box-shadow 140ms ease,
@@ -361,19 +362,15 @@ main{ padding: 0 0 70px; }
   background:
     radial-gradient(140px 90px at 30% 20%, rgba(111,143,176,0.18), transparent 60%),
     rgba(30, 41, 59, 0.88);
-
   border: 1px solid rgba(111,143,176,0.35);
   border-radius: 18px;
-
   padding: 18px 16px;
   display: grid;
   place-items: center;
   gap: 10px;
-
   box-shadow:
     0 18px 45px rgba(15, 23, 42, 0.30),
     inset 0 1px 0 rgba(255,255,255,0.06);
-
   transition:
     transform 140ms ease,
     border-color 140ms ease,
@@ -401,9 +398,7 @@ main{ padding: 0 0 70px; }
   font-size: 1.02rem;
 }
 
-/* =========================
-   Projects
-   ========================= */
+/* ---------- Projects ---------- */
 .projects{
   border-top: 1px solid rgba(230,237,247,0.45);
 }
@@ -413,6 +408,47 @@ main{ padding: 0 0 70px; }
   align-items: center;
   justify-content: space-between;
   margin-bottom: 18px;
+}
+
+.projects-subtitle{
+  margin: 0;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.project-filter-wrap{
+  margin-bottom: 22px;
+  display: grid;
+  gap: 10px;
+}
+
+.project-filter-label{
+  font-weight: 700;
+  color: var(--title);
+}
+
+.project-search{
+  width: 100%;
+  max-width: 440px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.7);
+  color: var(--text);
+  font: inherit;
+  outline: none;
+  transition: border-color 140ms ease, box-shadow 140ms ease, transform 140ms ease;
+}
+
+.project-search:focus{
+  border-color: rgba(111,143,176,0.6);
+  box-shadow: 0 0 0 4px rgba(111,143,176,0.14);
+}
+
+.project-search-feedback{
+  margin: 0;
+  color: var(--muted);
+  font-weight: 600;
 }
 
 .projects-grid{
@@ -429,26 +465,28 @@ main{ padding: 0 0 70px; }
   .projects-grid{ grid-template-columns: 1fr; }
 }
 
-/* Card */
 .project-card{
   position: relative;
   border-radius: 26px;
-  overflow: hidden; /* clip image + overlay */
+  overflow: hidden;
   background: rgba(255,255,255,0.55);
   border: 1px solid rgba(230,237,247,0.8);
   box-shadow: 0 22px 60px rgba(15,23,42,0.10);
-  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
-
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease, opacity 180ms ease;
   display: flex;
   flex-direction: column;
 }
+
 .project-card:hover{
   transform: translateY(-4px);
   box-shadow: 0 30px 75px rgba(15,23,42,0.14);
   border-color: rgba(111,143,176,0.35);
 }
 
-/* Top media area only */
+.project-card.is-hidden{
+  display: none;
+}
+
 .project-media.project-media--image{
   position: relative;
   height: 170px;
@@ -457,7 +495,6 @@ main{ padding: 0 0 70px; }
   background: radial-gradient(700px 260px at 50% 30%, rgba(111,143,176,0.18), transparent 60%);
 }
 
-/* Background image */
 .project-bg{
   position: absolute;
   inset: 0;
@@ -467,7 +504,6 @@ main{ padding: 0 0 70px; }
   opacity: 0.95;
 }
 
-/* Overlay for readability */
 .project-media.project-media--image::after{
   content: "";
   position: absolute;
@@ -479,7 +515,6 @@ main{ padding: 0 0 70px; }
   );
 }
 
-/* Body */
 .project-body{
   position: relative;
   z-index: 1;
@@ -531,7 +566,6 @@ main{ padding: 0 0 70px; }
   border: 1px solid rgba(230,237,247,0.9);
 }
 
-/* Actions */
 .project-actions{
   display: flex;
   align-items: center;
@@ -576,9 +610,17 @@ main{ padding: 0 0 70px; }
 }
 .iconbtn svg{ width: 18px; height: 18px; }
 
-/* =========================
-           Contact 
-   ========================= */
+.projects-empty-state{
+  margin-top: 18px;
+  padding: 16px 18px;
+  border-radius: 16px;
+  border: 1px dashed rgba(111,143,176,0.45);
+  background: rgba(111,143,176,0.08);
+  color: var(--title);
+  font-weight: 700;
+}
+
+/* ---------- Contact ---------- */
 .contact-panel{
   margin: 18px auto 0;
   max-width: 860px;
@@ -629,7 +671,12 @@ main{ padding: 0 0 70px; }
   box-shadow: 0 0 0 4px rgba(111,143,176,0.18);
 }
 
-/* Send button */
+.contact-form-dark input.input-error,
+.contact-form-dark textarea.input-error{
+  border-color: rgba(239, 68, 68, 0.8);
+  box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.14);
+}
+
 .c-submit{
   margin-top: 6px;
   height: 56px;
@@ -655,14 +702,33 @@ main{ padding: 0 0 70px; }
   box-shadow: 0 18px 44px rgba(15,23,42,0.36), 0 0 0 3px rgba(111,143,176,0.18);
 }
 
-/* Contact form status message */
 .form-status{
   margin: 0;
+  padding: 0;
   font-weight: 700;
-  color: rgba(235, 243, 255, 0.92);
+  border-radius: 14px;
+  transition: opacity 180ms ease, transform 180ms ease, padding 180ms ease;
 }
 
-/* accounts */
+.form-status.success,
+.form-status.error{
+  padding: 14px 16px;
+}
+
+.form-status.success{
+  background: var(--success-bg);
+  color: var(--success-text);
+  border: 1px solid var(--success-border);
+  animation: fadeUpMessage 260ms ease;
+}
+
+.form-status.error{
+  background: var(--error-bg);
+  color: var(--error-text);
+  border: 1px solid var(--error-border);
+  animation: shakeX 260ms ease;
+}
+
 .contact-accounts{
   margin-top: 18px;
   display: flex;
@@ -720,6 +786,18 @@ main{ padding: 0 0 70px; }
   to{ opacity: 1; transform: translateY(0); }
 }
 
+@keyframes fadeUpMessage{
+  from{ opacity: 0; transform: translateY(8px); }
+  to{ opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shakeX{
+  0%, 100%{ transform: translateX(0); }
+  25%{ transform: translateX(-4px); }
+  50%{ transform: translateX(4px); }
+  75%{ transform: translateX(-2px); }
+}
+
 .reveal{
   opacity: 0;
   transform: translateY(18px);
@@ -734,6 +812,8 @@ main{ padding: 0 0 70px; }
   html{ scroll-behavior: auto; }
   .reveal-on-scroll{ opacity: 1; transform: none; transition: none; }
   .reveal{ animation: none; opacity: 1; transform: none; }
+  .form-status.success,
+  .form-status.error{ animation: none; }
 }
 
 /* ---------- Responsive ---------- */
@@ -742,22 +822,25 @@ main{ padding: 0 0 70px; }
   .nav{ gap: 24px; }
   .nav-links{ gap: 28px; }
 }
+
 @media (max-width: 640px){
   .contact-panel{ padding: 22px 18px; }
+  .project-search{ max-width: 100%; }
 }
 
-/* Center ONLY the Contact heading */
+/* Contact title centered */
 #contact .section-title{
   width: 100%;
   text-align: center;
   display: block;
 }
 
-/* Force hero hello + name on separate lines */
+/* Hero lines */
 .hero-hello,
 .hero-name{
   display: block;
 }
+
 .hero-name{
   margin-top: 6px;
 }

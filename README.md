@@ -1,63 +1,94 @@
-# Personal Portfolio – Assignment 1
+# Shahad Almatrudi Portfolio - Assignment 2
 
-This project is a simple personal portfolio website created for Assignment 1.
-It was built using HTML, CSS, and JavaScript and shows basic front-end development skills.
+This project is my personal portfolio website for Assignment 2. It is an improved version of my Assignment 1 portfolio, with added interactivity, better user experience, and more modern JavaScript-based behavior.
+>>>>>>> 867ef05 (adding fetures to follow HW2)
 
-The website includes information about me, my skills, some projects, and a contact section.
-
-## What This Project Includes
-The website has the following sections:
-- About Me
-- Skills
-- Projects
-- Contact
-
-The main goal of this assignment was to practice building a responsive website and adding simple JavaScript interaction.
+The website introduces dynamic features such as a dark/light theme toggle, live project filtering, and contact form validation with user feedback. These additions make the portfolio more interactive and show clear progress beyond the first assignment.
 
 ## Features
-- Responsive design that works on desktop, tablet, and mobile
-- Navigation links to different sections of the page
-- Simple animations when scrolling
-- Dark and light mode toggle
-- Contact form with basic front-end validation (no backend)
+
+* Responsive portfolio website
+* Dark/light theme toggle with saved preference using localStorage
+* Live project search and filtering
+* Contact form validation with friendly feedback messages
+* Reveal-on-scroll animations
+* Hover effects and smooth transitions
+* Clear empty-state and error messages
 
 ## Technologies Used
-- HTML
-- CSS (Flexbox, Grid, media queries)
-- JavaScript
-- Google Fonts
-- Devicon icons
 
-## Project Structure
-- `index.html`  
-  The main HTML file that contains the structure of the website.
+* HTML5
+* CSS3
+* JavaScript
+* localStorage API
+* Google Fonts
+* Devicon icons
 
-- `css/styles.css`  
-  Contains all the styling for the website, including layout and responsiveness.
+## Folder Structure
 
-- `js/script.js`  
-  Contains the JavaScript code used for animations, theme toggle, and form interaction.
+assignment-2/
+├── README.md
+├── index.html
+├── css/
+│   └── styles.css
+├── js/
+│   └── script.js
+├── assets/
+│   └── images/
+├── docs/
+│   ├── ai-usage-report.md
+│   └── technical-documentation.md
+└── .gitignore
 
-- `assets/images/`  
-  Stores images and screenshots used in the projects section.
+## How to Run Locally
 
-- `docs/ai-usage-report.md`  
-  Explains how AI tools were used during this assignment.
+1. Download or clone the repository
+2. Open the project folder in VS Code or any editor
+3. Open `index.html` in your browser
 
-- `docs/technical-documentation.md`  
-  Contains a simple explanation of how the website works.
+(Optional: use Live Server in VS Code)
 
-- `README.md`  
-  Provides an overview of the project and how to run it.
+## Dynamic and Interactive Features
 
-## How to Run the Project
-1. Download or clone the repository.
-2. Open the `index.html` file in a web browser.
+### Theme Toggle
 
-No additional setup is required.
+Users can switch between light and dark mode. The selected theme is saved in localStorage.
 
-## AI Usage
-AI tools were used to help with code cleanup, layout improvements, and understanding some JavaScript features.
-More details about this are included in `docs/ai-usage-report.md`.
+### Live Project Filter
 
+Users can type in the search box to filter projects instantly.
 
+### Contact Form Validation
+
+The form checks:
+
+* empty fields
+* email format
+* message length
+
+Then shows success or error messages.
+
+## Error Handling and Feedback
+
+* Error message for empty fields
+* Error message for invalid email
+* Error message for short message
+* Success message after submission
+* Message when no projects are found
+
+## AI Usage Summary
+
+AI tools (ChatGPT) were used to help improve JavaScript logic, UI behavior, and documentation.
+
+Full details are in:
+docs/ai-usage-report.md
+
+## Documentation
+
+More details about the project are in:
+docs/technical-documentation.md
+
+## Author
+
+Shahad Almatrudi
+Software Engineering Student
