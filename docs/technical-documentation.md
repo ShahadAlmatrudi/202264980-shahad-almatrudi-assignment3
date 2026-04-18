@@ -136,12 +136,41 @@ Basic accessibility and usability improvements include:
 Optional:
 Use Live Server in VS Code for better development experience.
 
+## Assignment 3 Additions
+
+### 1. Personalized Welcome Feature
+A new input field allows users to enter their name.  
+The name is stored in localStorage and displayed dynamically as a welcome message.
+
+### 2. Project Sorting Feature
+A dropdown menu allows users to sort projects:
+- Default order
+- Alphabetical (A–Z)
+- Reverse alphabetical (Z–A)
+
+This is implemented using JavaScript array sorting and DOM updates.
+
+### 3. GitHub API Integration
+The portfolio fetches repositories from GitHub using:
+
+https://api.github.com/users/ShahadAlmatrudi/repos
+
+The data is displayed dynamically as project cards.
+
+### 4. Dynamic UI Rendering
+GitHub repositories are converted into styled cards using JavaScript and inserted into the DOM.
+
+### 5. Error Handling
+If the API request fails:
+- an error message is displayed
+- the UI remains stable
+
+### 6. UI Consistency
+Dynamic GitHub cards reuse the same CSS classes as static project cards to maintain a consistent design.
+
 ## Future Improvements
 
-Possible improvements for this project include:
-
-* Connecting the contact form to a real backend
-* Adding more projects and categories
-* Adding project details in a popup or modal
-* Improving accessibility further
-* Deploying the portfolio using GitHub Pages or Vercel
+- Connect contact form to backend
+- Add project filtering by category
+- Improve accessibility (ARIA roles)
+- Deploy using GitHub Pages

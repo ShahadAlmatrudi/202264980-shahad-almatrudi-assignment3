@@ -1,71 +1,55 @@
 # AI Usage Report
 
 ## AI Tool Used
+- ChatGPT
 
-* ChatGPT
+## How AI Was Used
 
-## How I Used AI
+### 1. Understanding Assignment Requirements
+AI was used to clarify Assignment 3 requirements, especially regarding:
+- API usage
+- additional dynamic features
+- user interaction improvements
 
-I used ChatGPT as a support tool while working on Assignment 2 to improve my portfolio from Assignment 1 and make it more interactive and modern.
+### 2. JavaScript Enhancements
+AI helped in implementing:
+- GitHub API integration using fetch()
+- sorting functionality for projects
+- improving existing filtering logic
+- better DOM manipulation structure
 
-### 1. Understanding the Requirements
+### 3. UI Improvements
+AI suggested improvements for:
+- making GitHub cards consistent with project cards
+- organizing CSS for readability
+- improving spacing and alignment
 
-I first shared the assignment instructions with ChatGPT to understand what features were required. This helped me identify that I needed:
+### 4. Debugging
+AI helped identify:
+- styling conflicts
+- incorrect HTML structure affecting layout
+- missing class names in dynamic content
 
-* at least one dynamic feature
-* data handling using JavaScript
-* animations or transitions
-* user feedback and error handling
+### 5. Documentation Writing
+AI helped structure:
+- README file
+- technical documentation
+- this AI usage report
 
-### 2. Improving JavaScript Functionality
+## Verification
 
-I used ChatGPT to help enhance my JavaScript code by adding and improving features such as:
-
-* theme toggle with localStorage
-* live project filtering based on user input
-* contact form validation (checking empty fields, email format, and message length)
-* displaying success and error messages
-
-### 3. Enhancing User Experience
-
-ChatGPT suggested improvements to make the website more user-friendly, including:
-
-* adding a search bar to filter projects dynamically
-* showing an empty-state message when no projects are found
-* improving feedback messages for better clarity
-* keeping animations simple and smooth
-
-### 4. Debugging and Code Review
-
-I used ChatGPT to review my code and fix issues. I made sure the JavaScript worked correctly with my HTML elements and that all features behaved as expected.
-
-### 5. Writing Documentation
-
-ChatGPT helped me structure and write:
-
-* README.md
-* AI usage report
-* technical documentation
-
-I reviewed and edited the content to match my project and ensure it reflects my understanding.
-
-## How I Verified the AI Output
-
-
-* tested all features in the browser
-* ensured the project filter worked correctly
-* verified that the form validation behaves as expected
-* checked that the theme toggle saves the preference
+All AI-generated code was:
+- tested manually in the browser
+- adjusted to match the existing design
+- reviewed to ensure understanding
 
 ## What I Learned
 
-From using AI in this project, I learned:
-
-* how to use localStorage to store user preferences
-* how to filter content dynamically using JavaScript
-* how to validate user input in forms
-* how to improve user experience with feedback messages
+- how to use Fetch API with real data
+- how to dynamically create UI elements using JavaScript
+- how to organize CSS for scalability
+- how to improve UI consistency across static and dynamic content
 
 ## Reflection
 
-AI helped me save time and improve my project, but I still needed to understand the code and make adjustments. I used AI as a learning tool, not as a replacement for my work.
+AI helped speed up development and improve code quality, but I made sure to understand every part and adapt it to my project.

@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+
   // =========================
   // 1) Reveal on scroll
   // =========================
@@ -19,10 +20,11 @@ document.addEventListener("DOMContentLoaded", () => {
   revealEls.forEach((el) => io.observe(el));
 
   // =========================
-  // 2) Theme toggle + localStorage
+  // 2) Theme toggle
   // =========================
   const toggleBtn = document.getElementById("theme-toggle");
   const toggleIcon = toggleBtn?.querySelector(".theme-toggle__icon");
+
   const savedTheme = localStorage.getItem("theme");
 
   if (savedTheme === "dark") {
@@ -40,123 +42,199 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // =========================
-  // 3) Live project search filter
+  // 3) Visitor Name (SAFE FIX)
+  // =========================
+  const visitorNameInput = document.getElementById("visitor-name");
+  const welcomeMsg = document.getElementById("welcome-msg");
+
+  if (visitorNameInput && welcomeMsg) {
+
+    const savedName = localStorage.getItem("visitorName");
+
+    if (savedName) {
+      welcomeMsg.textContent = `Welcome back, ${savedName}!`;
+      visitorNameInput.value = savedName;
+    }
+
+    visitorNameInput.addEventListener("input", () => {
+      const name = visitorNameInput.value.trim();
+
+      if (name === "") {
+        localStorage.removeItem("visitorName");
+        welcomeMsg.textContent = "";
+        return;
+      }
+
+      localStorage.setItem("visitorName", name);
+      welcomeMsg.textContent = `Hello, ${name}!`;
+    });
+  }
+
+  // =========================
+  // 4) Project Filter
   // =========================
   const searchInput = document.getElementById("project-search");
-  const projectCards = document.querySelectorAll(".project-card");
+  const projectsList = document.getElementById("projects-list");
   const searchFeedback = document.getElementById("project-search-feedback");
   const emptyState = document.getElementById("projects-empty-state");
+
+  function getProjectCards() {
+    return projectsList ? Array.from(projectsList.querySelectorAll(".project-card")) : [];
+  }
 
   function filterProjects() {
     if (!searchInput) return;
 
     const query = searchInput.value.trim().toLowerCase();
-    let visibleCount = 0;
+    const cards = getProjectCards();
 
-    projectCards.forEach((card) => {
+    let visible = 0;
+
+    cards.forEach(card => {
       const title = card.dataset.title?.toLowerCase() || "";
       const tags = card.dataset.tags?.toLowerCase() || "";
-      const matches = title.includes(query) || tags.includes(query);
 
-      if (matches) {
-        card.classList.remove("is-hidden");
-        visibleCount++;
-      } else {
-        card.classList.add("is-hidden");
-      }
+      const match = title.includes(query) || tags.includes(query);
+
+      card.classList.toggle("is-hidden", !match);
+
+      if (match) visible++;
     });
 
-    if (query === "") {
-      if (searchFeedback) {
+    if (searchFeedback) {
+      if (query === "") {
         searchFeedback.textContent = "Showing all projects.";
-      }
-    } else if (visibleCount > 0) {
-      if (searchFeedback) {
-        searchFeedback.textContent = `Found ${visibleCount} project${visibleCount > 1 ? "s" : ""} matching "${query}".`;
-      }
-    } else {
-      if (searchFeedback) {
-        searchFeedback.textContent = `No projects matched "${query}".`;
+      } else if (visible > 0) {
+        searchFeedback.textContent = `Found ${visible} project(s).`;
+      } else {
+        searchFeedback.textContent = "No projects found.";
       }
     }
 
     if (emptyState) {
-      emptyState.hidden = visibleCount !== 0;
+      emptyState.hidden = visible !== 0;
     }
   }
 
   searchInput?.addEventListener("input", filterProjects);
 
   // =========================
-  // 4) Contact form validation + feedback
+  // 5) Sorting
+  // =========================
+  const sortSelect = document.getElementById("sort-projects");
+  const originalCards = getProjectCards();
+
+  sortSelect?.addEventListener("change", () => {
+    if (!projectsList) return;
+
+    let cards = getProjectCards();
+
+    if (sortSelect.value === "az") {
+      cards.sort((a, b) =>
+        a.dataset.title.localeCompare(b.dataset.title)
+      );
+    } else if (sortSelect.value === "za") {
+      cards.sort((a, b) =>
+        b.dataset.title.localeCompare(a.dataset.title)
+      );
+    } else {
+      cards = [...originalCards];
+    }
+
+    projectsList.innerHTML = "";
+    cards.forEach(c => projectsList.appendChild(c));
+
+    filterProjects();
+  });
+
+  // =========================
+  // 6) Contact Form
   // =========================
   const form = document.getElementById("contact-form");
   const statusEl = document.getElementById("form-status");
 
-  const nameInput = document.getElementById("name");
-  const emailInput = document.getElementById("email");
-  const messageInput = document.getElementById("message");
-
-  function showStatus(message, type) {
-    if (!statusEl) return;
-
-    statusEl.textContent = message;
-    statusEl.classList.remove("success", "error");
-
-    if (type) {
-      statusEl.classList.add(type);
-    }
-  }
-
-  function clearInputErrors() {
-    [nameInput, emailInput, messageInput].forEach((input) => {
-      input?.classList.remove("input-error");
-    });
-  }
-
-  function markError(input) {
-    input?.classList.add("input-error");
-  }
-
-  function isValidEmail(email) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  }
-
   form?.addEventListener("submit", (e) => {
     e.preventDefault();
-    clearInputErrors();
+    statusEl.textContent = "Message sent successfully!";
+    statusEl.classList.add("success");
+    form.reset();
+  });
 
-    const name = nameInput?.value.trim() || "";
-    const email = emailInput?.value.trim() || "";
-    const message = messageInput?.value.trim() || "";
+  // =========================
+  // 7) GitHub API
+  // =========================
+  
+const githubContainer = document.getElementById("github-projects");
+const apiError = document.getElementById("api-error");
 
-    if (!name || !email || !message) {
-      if (!name) markError(nameInput);
-      if (!email) markError(emailInput);
-      if (!message) markError(messageInput);
+async function loadRepos() {
+  if (!githubContainer) return;
 
-      showStatus("Please fill in all fields before sending.", "error");
-      return;
-    }
+  githubContainer.innerHTML =
+    "<p class='project-search-feedback'>Loading repositories...</p>";
 
-    if (!isValidEmail(email)) {
-      markError(emailInput);
-      showStatus("Please enter a valid email address.", "error");
-      return;
-    }
-
-    if (message.length < 10) {
-      markError(messageInput);
-      showStatus("Message should be at least 10 characters long.", "error");
-      return;
-    }
-
-    showStatus(
-      `Thanks, ${name}! Your message is ready (no backend in this project).`,
-      "success"
+  try {
+    const res = await fetch(
+      "https://api.github.com/users/ShahadAlmatrudi/repos?per_page=4"
     );
 
-    form.reset();
-    clearInputErrors();
-  });
+    if (!res.ok) {
+      throw new Error("Failed to fetch repositories.");
+    }
+
+    const data = await res.json();
+
+    githubContainer.innerHTML = data
+      .map((repo) => {
+        return `
+          <article class="project-card">
+            <div class="project-body">
+              <p class="project-kicker">GitHub Repository</p>
+
+              <h3 class="project-name">${repo.name}</h3>
+
+              <p class="project-sub">
+                ${repo.description ? repo.description : "No description available for this repository."}
+              </p>
+
+              <div class="project-tags" aria-label="Repository details">
+                <span class="pill">${repo.language || "Not specified"}</span>
+                <span class="pill">⭐ ${repo.stargazers_count}</span>
+              </div>
+
+              <div class="project-actions">
+                <a
+                  class="pbtn"
+                  href="${repo.html_url}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View Repo →
+                </a>
+              </div>
+            </div>
+          </article>
+        `;
+      })
+      .join("");
+
+    if (apiError) {
+      apiError.hidden = true;
+    }
+  } catch (error) {
+    githubContainer.innerHTML = "";
+
+    if (apiError) {
+      apiError.hidden = false;
+      apiError.textContent =
+        "Failed to load GitHub repositories. Please try again later.";
+    }
+
+    console.error("GitHub API error:", error);
+  }
+}
+
+loadRepos();
+
+filterProjects();
 });

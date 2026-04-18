@@ -1,35 +1,43 @@
-# Shahad Almatrudi Portfolio - Assignment 2
+# Shahad Almatrudi Portfolio - Assignment 3
 
-This project is my personal portfolio website for Assignment 2. It is an improved version of my Assignment 1 portfolio, with added interactivity, better user experience, and more modern JavaScript-based behavior.
+This project is my personal portfolio website for Assignment 3. It builds on Assignment 2 by adding more dynamic features, API integration, and improved user interaction.
 
-
-The website introduces dynamic features such as a dark/light theme toggle, live project filtering, and contact form validation with user feedback. These additions make the portfolio more interactive and show clear progress beyond the first assignment.
+---
 
 ## Features
 
-* Responsive portfolio website
-* Dark/light theme toggle with saved preference using localStorage
-* Live project search and filtering
-* Contact form validation with friendly feedback messages
+### From Assignment 2
+
+* Responsive portfolio design
+* Dark/light theme toggle (saved using localStorage)
+* Live project search filtering
+* Contact form validation with user feedback
 * Reveal-on-scroll animations
-* Hover effects and smooth transitions
-* Clear empty-state and error messages
+
+### New in Assignment 3
+
+* Personalized welcome message (user input + localStorage)
+* Project sorting (Default, A–Z, Z–A)
+* GitHub API integration (dynamic repository display)
+* Improved UI consistency for dynamic content
+
+---
 
 ## Technologies Used
 
 * HTML5
 * CSS3
-* JavaScript
+* JavaScript (ES6)
 * localStorage API
+* Fetch API (GitHub API)
 * Google Fonts
 * Devicon icons
 
-## Folder Structure
+---
 
 ## Folder Structure
 
-```
-assignment-2/
+assignment-3/
 ├── README.md
 ├── index.html
 ├── css/
@@ -42,55 +50,53 @@ assignment-2/
 │   ├── ai-usage-report.md
 │   └── technical-documentation.md
 └── .gitignore
-```
 
-## How to Run Locally
+---
 
-1. Download or clone the repository
-2. Open the project folder in VS Code or any editor
-3. Open `index.html` in your browser
+## How to Run
 
-(Optional: use Live Server in VS Code)
+1. Open the project folder
+2. Open `index.html` in a browser
+3. (Optional) Use Live Server in VS Code
 
-## Dynamic and Interactive Features
+---
 
-### Theme Toggle
+## Dynamic Features Explanation
 
-Users can switch between light and dark mode. The selected theme is saved in localStorage.
+### 1. Personalized Welcome
 
-### Live Project Filter
+Users can enter their name, which is saved in localStorage and displayed as a welcome message.
 
-Users can type in the search box to filter projects instantly.
+### 2. Project Sorting
 
-### Contact Form Validation
+Projects can be sorted using a dropdown menu:
 
-The form checks:
+* Default order
+* Alphabetical (A–Z)
+* Reverse alphabetical (Z–A)
 
-* empty fields
-* email format
-* message length
+### 3. GitHub API Integration
 
-Then shows success or error messages.
+Repositories are fetched dynamically from GitHub using the Fetch API and displayed as styled project cards.
 
-## Error Handling and Feedback
+---
 
-* Error message for empty fields
-* Error message for invalid email
-* Error message for short message
-* Success message after submission
-* Message when no projects are found
+## Error Handling
 
-## AI Usage Summary
+* API error message if GitHub fails
+* Empty state message for project search
+* Form validation errors with user feedback
 
-AI tools (ChatGPT) were used to help improve JavaScript logic, UI behavior, and documentation.
+---
 
-Full details are in:
-docs/ai-usage-report.md
+## Future Improvements
 
-## Documentation
+* Connect contact form to a real backend
+* Add filtering by project category
+* Improve accessibility (ARIA roles)
+* Deploy using GitHub Pages
 
-More details about the project are in:
-docs/technical-documentation.md
+---
 
 ## Author
 
