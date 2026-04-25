@@ -2,175 +2,74 @@
 
 ## Project Overview
 
-This project is a personal portfolio website developed for Assignment 2. It is based on the Assignment 1 portfolio and enhanced with interactive features using JavaScript, CSS transitions, and improved user feedback.
+This project is a personal portfolio web application created as the final assignment for the Web Engineering course. The purpose of the application is to present my background, technical skills, projects, and contact information in a professional and interactive way.
 
-The main goal of the project is to present personal information, skills, projects, and contact details in a clear and interactive way.
+## Main Sections
 
-## Project Structure
+The website includes the following sections:
 
-The project follows a structured folder organization:
+- Hero section with introduction and call-to-action buttons
+- About Me section
+- Skills section
+- Projects section
+- Live GitHub Repositories section
+- Contact section
 
-assignment-2/
-├── README.md
-├── index.html
-├── css/
-│   └── styles.css
-├── js/
-│   └── script.js
-├── assets/
-│   └── images/
-├── docs/
-│   ├── ai-usage-report.md
-│   └── technical-documentation.md
-└── .gitignore
-
-## File Descriptions
-
-### 1. index.html
-
-This file contains the structure of the website. It includes:
-
-* Navigation bar
-* Hero section
-* About section
-* Skills section
-* Projects section
-* Contact section
-
-It also includes interactive elements such as:
-
-* Theme toggle button
-* Project search input
-* Contact form
-
-### 2. css/styles.css
-
-This file is responsible for the design and layout of the website. It includes:
-
-* Color variables and theme styles
-* Light and dark mode styling
-* Layout and spacing
-* Typography
-* Buttons and cards
-* Hover effects
-* Responsive design
-* Animations (reveal-on-scroll, transitions)
-* Styles for success and error messages
-
-### 3. js/script.js
-
-This file handles all interactive and dynamic functionality.
-
-Main features implemented:
-
-* Reveal elements on scroll using IntersectionObserver
-* Theme toggle (light/dark mode)
-* Saving theme preference using localStorage
-* Live filtering of projects based on user input
-* Contact form validation
-* Displaying success and error messages
-
-## Dynamic Features
+## Core Features
 
 ### 1. Theme Toggle
+The user can switch between light mode and dark mode. The selected theme is saved in localStorage so it remains available when the page is reopened.
 
-Users can switch between light mode and dark mode using a button.
-The selected theme is saved using localStorage so it persists after refreshing the page.
+### 2. Reveal-on-Scroll Animation
+Sections become visible with a smooth animation when they enter the viewport using IntersectionObserver.
 
-### 2. Live Project Search
+### 3. Personalized Welcome
+The visitor can type a name and receive a personalized greeting. The name is stored in localStorage and reused later.
 
-The Projects section includes a search input.
-As the user types, JavaScript filters the project cards based on their title and tags.
+### 4. Project Search and Sorting
+The user can filter projects by typing keywords and sort them alphabetically using the provided controls.
 
-This makes the page dynamic because content changes instantly based on user input.
+### 5. GitHub API Integration
+The application fetches repository information dynamically from GitHub using the GitHub API and displays repository cards.
 
-### 3. Contact Form Validation
+### 6. Contact Form Validation
+The contact form checks whether the user entered a valid name, email, and message before showing a success message.
 
-The contact form validates user input by checking:
+### 7. Back to Top Button
+A floating button appears after scrolling down and allows the user to return smoothly to the top of the page.
 
-* All fields are filled
-* Email format is correct
-* Message length is sufficient
+## File Organization
 
-If validation fails, an error message is displayed.
-If validation succeeds, a success message is shown.
+- `index.html`: main structure of the website
+- `css/styles.css`: styling, layout, responsiveness, and animations
+- `js/script.js`: interactive functionality and dynamic behavior
+- `assets/images/`: project images and visual assets
+- `docs/`: project documentation
+- `presentation/`: presentation slides and video
 
-## Error Handling and User Feedback
+## Design Decisions
 
-The system provides clear feedback to the user:
+The design focuses on:
+- clean layout
+- soft colors
+- readable typography
+- responsive structure
+- modern project cards
+- professional presentation
 
-* Error message for empty form fields
-* Error message for invalid email
-* Error message for short message
-* Success message after valid form submission
-* Empty-state message when no projects match the search
+## Challenges
 
-This improves usability and helps guide the user.
-
-## Animation and Transitions
-
-The project uses simple animations to improve user experience:
-
-* Reveal-on-scroll animation for sections
-* Hover effects on buttons and cards
-* Smooth transitions for UI elements
-* Animated feedback messages
-
-These animations are lightweight and do not affect performance.
-
-## Accessibility and Usability
-
-Basic accessibility and usability improvements include:
-
-* Clear labels for form inputs
-* Readable typography and color contrast
-* Responsive design for different screen sizes
-* aria-live attribute for status messages
-* Buttons and links are easy to interact with
-
-## How to Run the Project
-
-1. Open the project folder
-2. Open `index.html` in a browser
-
-Optional:
-Use Live Server in VS Code for better development experience.
-
-## Assignment 3 Additions
-
-### 1. Personalized Welcome Feature
-A new input field allows users to enter their name.  
-The name is stored in localStorage and displayed dynamically as a welcome message.
-
-### 2. Project Sorting Feature
-A dropdown menu allows users to sort projects:
-- Default order
-- Alphabetical (A–Z)
-- Reverse alphabetical (Z–A)
-
-This is implemented using JavaScript array sorting and DOM updates.
-
-### 3. GitHub API Integration
-The portfolio fetches repositories from GitHub using:
-
-https://api.github.com/users/ShahadAlmatrudi/repos
-
-The data is displayed dynamically as project cards.
-
-### 4. Dynamic UI Rendering
-GitHub repositories are converted into styled cards using JavaScript and inserted into the DOM.
-
-### 5. Error Handling
-If the API request fails:
-- an error message is displayed
-- the UI remains stable
-
-### 6. UI Consistency
-Dynamic GitHub cards reuse the same CSS classes as static project cards to maintain a consistent design.
+Some challenging parts of the project included:
+- organizing interactive features clearly in JavaScript
+- making the layout responsive across screen sizes
+- improving the site visually without making it too crowded
+- integrating the GitHub API in a clean way
 
 ## Future Improvements
 
-- Connect contact form to backend
-- Add project filtering by category
-- Improve accessibility (ARIA roles)
-- Deploy using GitHub Pages
+Possible future improvements include:
+- adding a real backend for the contact form
+- adding project category filters
+- improving accessibility further
+- including more portfolio projects
+- adding downloadable CV support

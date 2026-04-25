@@ -1,55 +1,42 @@
+```md
 # AI Usage Report
 
-## AI Tool Used
-- ChatGPT
+## Tools Used and Use Cases
 
-## How AI Was Used
+During this assignment, I used ChatGPT as an AI assistant to support my development process. I used it for several purposes, including:
 
-### 1. Understanding Assignment Requirements
-AI was used to clarify Assignment 3 requirements, especially regarding:
-- API usage
-- additional dynamic features
-- user interaction improvements
+- reviewing parts of my HTML, CSS, and JavaScript code
+- improving the design and structure of the portfolio website
+- suggesting ideas for interactive features
+- helping refine validation logic in JavaScript
+- improving documentation such as the README and technical notes
 
-### 2. JavaScript Enhancements
-AI helped in implementing:
-- GitHub API integration using fetch()
-- sorting functionality for projects
-- improving existing filtering logic
-- better DOM manipulation structure
+## Benefits
 
-### 3. UI Improvements
-AI suggested improvements for:
-- making GitHub cards consistent with project cards
-- organizing CSS for readability
-- improving spacing and alignment
+Using AI helped me in the following ways:
 
-### 4. Debugging
-AI helped identify:
-- styling conflicts
-- incorrect HTML structure affecting layout
-- missing class names in dynamic content
+- saved time while debugging and improving code
+- gave me ideas for making the portfolio more polished
+- helped me organize documentation more professionally
+- supported me in understanding how to improve user experience and code quality
 
-### 5. Documentation Writing
-AI helped structure:
-- README file
-- technical documentation
-- this AI usage report
+## Challenges and Limitations
 
-## Verification
+There were also some limitations when using AI:
 
-All AI-generated code was:
-- tested manually in the browser
-- adjusted to match the existing design
-- reviewed to ensure understanding
+- some suggestions needed adjustment to match my project structure
+- not every generated idea fit my assignment requirements
+- I had to carefully test and review the output before using it
 
-## What I Learned
+## Learning Outcomes
 
-- how to use Fetch API with real data
-- how to dynamically create UI elements using JavaScript
-- how to organize CSS for scalability
-- how to improve UI consistency across static and dynamic content
+Through using AI, I learned:
 
-## Reflection
+- how to improve JavaScript interactivity in a portfolio website
+- how to structure technical documentation clearly
+- how to validate form input more effectively
+- how to review AI suggestions critically instead of copying them directly
 
-AI helped speed up development and improve code quality, but I made sure to understand every part and adapt it to my project.
+## Responsible Use and Modifications
+
+I reviewed all AI-generated suggestions before applying them. I modified the code and explanations to fit my own project, style, and assignment requirements. I made sure to understand the logic before using it and did not submit raw AI output without checking, testing, and adapting it.
